@@ -1,15 +1,15 @@
 
 
-const crud =  require('./crud');
+const {createNote,readNotes,updateNote,deleteNote} =  require('./crud');
 
-console.log(crud.readNotes());
-crud.createNote('dsadasdsas   1');
-crud.createNote('dsadasdsas   12');
-crud.createNote('dsadasdsas   13');
-crud.createNote('dsadasdsas   14');
-crud.createNote('dsadasdsas   15');
-crud.createNote('dsadasdsas   16');
-console.log(crud.readNotes());
-crud.updateNote(1,'dummy');
-crud.deleteNote(3);
-console.log(crud.readNotes());
+console.log(readNotes());
+createNote('dsadasdsas   1');
+createNote('dsadasdsas   12');
+createNote('dsadasdsas   13');
+createNote('dsadasdsas   14');
+createNote('dsadasdsas   15');
+createNote('dsadasdsas   16');
+console.log(readNotes());
+updateNote(1,'dummy');
+deleteNote(3);
+console.log(readNotes());
