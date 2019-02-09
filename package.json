@@ -1,0 +1,24 @@
+{
+  "name": "crud-console",
+  "version": "1.0.0",
+  "description": "simple console crud app using node js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naufalafif/node-crud-console.git"
+  },
+  "keywords": [
+    "console",
+    "nodejs",
+    "crud"
+  ],
+  "author": "naufalafif58",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naufalafif/node-crud-console/issues"
+  },
+  "homepage": "https://github.com/naufalafif/node-crud-console#readme"
+}
