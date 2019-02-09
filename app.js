@@ -3,13 +3,9 @@
 const {createNote,readNotes,updateNote,deleteNote} =  require('./crud');
 
 console.log(readNotes());
-createNote('dsadasdsas   1');
-createNote('dsadasdsas   12');
-createNote('dsadasdsas   13');
-createNote('dsadasdsas   14');
-createNote('dsadasdsas   15');
-createNote('dsadasdsas   16');
+createNote('Note   1');
+createNote('Note   2');
 console.log(readNotes());
-updateNote(1,'dummy');
-deleteNote(3);
+updateNote({id:1,content:'Updated Note 2'});
+deleteNote(0);
 console.log(readNotes());

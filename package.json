@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/naufalafif/node-crud-console/issues"
   },
-  "homepage": "https://github.com/naufalafif/node-crud-console#readme"
+  "homepage": "https://github.com/naufalafif/node-crud-console#readme",
+  "dependencies": {
+    "validate": "^4.5.1"
+  }
 }
