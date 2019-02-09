@@ -1,11 +1,41 @@
+const {
+    createNote,
+    readNotes,
+    updateNote,
+    deleteNote
+} = require('./crud');
 
+const stdin = process.openStdin();
+console.reset = function () {
+  return process.stdout.write('\033c');
+}
 
-const {createNote,readNotes,updateNote,deleteNote} =  require('./crud');
+const header = ()=>{
+    console.log("\n\nCommand { r : Read, C : Create, U : Update, D : Delete, E : Exit, C : Clear Screen }");
+    process.stdout.write("Enter Command : ");
+}
 
-console.log(readNotes());
-createNote('Note   1');
-createNote('Note   2');
-console.log(readNotes());
-updateNote({id:1,content:'Updated Note 2'});
-deleteNote(0);
-console.log(readNotes());
+header();
+stdin.addListener("data", function(command) {
+    const clean_command = command.toString().trim().toLowerCase();
+    
+    switch (clean_command) {
+        case 'r':
+            console.log(readNotes());
+            break;
+        case 'c':
+            console.reset();
+            break;
+        case 'c':
+            // TODO
+            break;
+        case 'e':
+            process.exit();
+            break;
+        default:
+            console.log('!!Command not valid')
+            break;
+    }
+    
+    header();
+});
