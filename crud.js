@@ -1,21 +1,10 @@
-const file = "./dataset.json";
-
 const Schema = require('validate')
-const dataset = require(file);
-const jsonfile = require('jsonfile')
-const fs = require('fs');
+let dataset = {"notes":[{"id":1,"contet":"Note 1","content":"Updated Note 1"},{"content":"New Note Content ...","id":2}]}
 
 const createNoteId = () => {
     const id_lists = dataset.notes.map(i => i.id);
     const max = Math.max(...id_lists);
     return max + 1;
-}
-
-const saveDataset = async (dataset_object) => {
-    jsonfile.writeFile(file, dataset_object, function (err) {
-        if (err) return false;
-        return true;
-    })
 }
 
 const getNoteIndex = (note_id) => {
@@ -45,7 +34,6 @@ module.exports.createNote = (note) => {
     const error = notesSchema.validate(note_to_save)[0];
     if (!error) {
         dataset.notes.push(note_to_save);
-        saveDataset(dataset)
         console.log('Note successfully added')
         return true;
     }else{
@@ -64,7 +52,6 @@ module.exports.updateNote = (note) => {
     if (!error) {
         if (searched_note_index != -1) {
             dataset.notes[searched_note_index].content = note.content;
-            saveDataset(dataset)
             console.log('Note successfully updated')
             return true;
         } else {
@@ -78,7 +65,6 @@ module.exports.deleteNote = (note_id) => {
     const index = getNoteIndex(note_id);
     if (index != -1) {
         dataset.notes.splice(index, 1);
-        saveDataset(dataset)
         console.log('Note successfully deleted')
         return true;
     }
